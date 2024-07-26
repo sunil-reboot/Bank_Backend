@@ -1,0 +1,47 @@
+{
+  "correlation_id": "c307aad9-1767-4aac-9509-07f10ffcde0f",
+  "recommendation": {
+    "plans": [
+      {
+        "name": "Plan 1",
+        "type": "fixed-term",
+        "roi": 5.0,
+        "risk_level": "low",
+        "investment_period": 5,
+        "frequent_withdrawal": false,
+        "estimated_return": 42000.0
+      }
+    ],
+    "mutual_funds": [
+      {
+        "name": "Fund F",
+        "average_roe": 7.5,
+        "investment_period": 7,
+        "risk_level": "medium",
+        "frequent_withdrawal": true,
+        "estimated_return": 43200.0
+      }
+    ],
+    "stocks": [
+      {
+        "name": "Stock F",
+        "average_roe": 11.0,
+        "investment_period": 5,
+        "risk_level": "high",
+        "frequent_withdrawal": true,
+        "estimated_return": 44800.00000000001
+      }
+    ],
+    "estimated_returns": {
+      "plans": [
+        42000.0
+      ],
+      "mutual_funds": [
+        43200.0
+      ],
+      "stocks": [
+        44800.00000000001
+      ]
+    }
+  }
+}

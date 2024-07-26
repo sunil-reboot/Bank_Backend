@@ -85,6 +85,7 @@ public class AuthenticationController {
         final Map<String, Object> returnMap = new HashMap<>();
         try {
             String phoneNumber = loginRequest.getPhoneNumber().trim();
+            log.info("The phone number that we have got is {}", phoneNumber);
             if(phoneNumber.length() < 10 || phoneNumber.length() > 10) {
                  returnMap.put(Constants.STATUS, Constants.FAILED);
                 returnMap.put(Constants.MESSAGE, "Incorrect mobile number");
@@ -93,8 +94,10 @@ public class AuthenticationController {
             if(phoneNumber.length() == 10)
                 phoneNumber = "+91"+phoneNumber;
             User user = repository.findByPhoneNumber(phoneNumber);
+            log.info("We have found the user {}", user.toString());
             if(user != null && user.getUserName() != null) {
                 final String jwtToken = createAuthenticationToken(loginRequest);
+                log.info("jwt token is {}", jwtToken);
                 returnMap.put(Constants.STATUS, Constants.SUCCESS);
                 returnMap.put(Constants.MESSAGE, "login successful");
                 returnMap.put("jwt", jwtToken);

@@ -1,6 +1,8 @@
 package com.bank.investment.service;
 
+import com.bank.investment.model.NomineeDetailsT;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Properties;
 
@@ -13,13 +15,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 @Slf4j
+@Service
 public class MailService {
 
-    public void sendEmailToNominee() {
-        String to = "sunilpareekps@gmail.com";
+    public void sendEmailToNominee(final NomineeDetailsT nomineeDetailsT) {
+        String to = "";
         //String to = "amrhusain@gmail.com";
         String from = "amrhusain@gmail.com";
-
+        String nameOfUser = nomineeDetailsT.getUserName();
         String host = "smtp.gmail.com";
 
         Properties properties = System.getProperties();
@@ -45,6 +48,7 @@ public class MailService {
         session.setDebug(false);
 
         try {
+            to = nomineeDetailsT.getEmail();
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
 
@@ -52,10 +56,9 @@ public class MailService {
 
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
-            message.setSubject("Your better investment plan!");
-            message.setContent("<html><a href='www.eenadu.net'>Click Here</a></html>", "text/html; charset=utf-8");
-            // Now set the actual message
-            //message.setText("Mail aaya kya!!");
+            message.setSubject(nameOfUser+" has requested you for financial suggestions!");
+            String suggestionUrl = nomineeDetailsT.getUrl();
+            message.setContent("<html><a href='"+suggestionUrl+"'>Click Here</a></html>", "text/html; charset=utf-8");
 
             log.info("sending...");
             // Send message

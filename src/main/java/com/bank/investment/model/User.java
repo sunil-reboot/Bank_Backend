@@ -37,4 +37,7 @@ public class User {
 
     @Column(name = "person_name")
     private String personName;
+
+    @Column(name = "person_age")
+    private int personAge;
 }
