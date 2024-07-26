@@ -1,5 +1,5 @@
 # Use an OpenJDK image based on Alpine Linux
-FROM openjdk:11-alpine
+FROM openjdk:11-jdk
 
 # Install Maven
 RUN apk update && apk add maven
