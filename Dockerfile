@@ -21,4 +21,4 @@ RUN mvn package
 EXPOSE 8080
 
 # Define the command to run the application
-CMD ["java", "-jar", "target/InvestBetter-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/investment-0.0.1-SNAPSHOT.jar"]
