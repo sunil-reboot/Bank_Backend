@@ -2,7 +2,8 @@
 FROM openjdk:11-jdk
 
 # Install Maven
-RUN apk update && apk add maven
+#RUN apk update && apk add maven
+RUN apt-get update && apt-get install -y maven
 
 WORKDIR /code
 
